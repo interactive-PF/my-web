@@ -4,16 +4,18 @@ import styled from 'styled-components';
 const Head = styled.nav`
 	display: flex;
 	justify-content: space-between;
-	padding-left: 3%;
-	padding-right: 3%;
-	padding-top: 10px;
+	box-sizing: border-box;
+	padding: 10px 3% 0 3%;
 	background-color: skyblue;
+	width: 100%;
+	position: fixed;
+	height: 70px;
 `;
 
 const TitleWrapper = styled.div``;
 
 const Title = styled.a`
-	font-size: 3rem;
+	font-size: 2rem;
 `;
 
 const MenuWrapper = styled.div`
