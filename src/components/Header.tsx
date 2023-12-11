@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Head = styled.nav`
@@ -10,6 +9,7 @@ const Head = styled.nav`
 	width: 100%;
 	position: fixed;
 	height: 70px;
+	align-items: center;
 `;
 
 const TitleWrapper = styled.div``;
