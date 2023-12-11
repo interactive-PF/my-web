@@ -5,43 +5,42 @@ const FooterContainer = styled.footer`
 	height: 70px;
 	line-height: 70px;
 	bottom: 0px;
+	left: 0px;
 	right: 0px;
 	z-index: 10;
-	padding: 70px;
-	background-color: #ffffff;
+	background-color: black;
+	color: rgb(51, 51, 51);
+	position: fixed;
+	padding: 0px 70px;
 `;
 
-const Title = styled.h1`
-	align-items: center;
-	text-align: center;
-	font-size: 3rem;
-`;
-
-const Menu = styled.button`
-	margin: auto auto;
-	padding: 20px 20px;
-	height: auto;
-	margin: 10px;
-`;
-
-const TT = styled.div`
-	margin: auto 0;
+const FooterWarpper = styled.div`
 	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
 	justify-content: space-between;
-	margin-right: 30px;
+	background: red;
+`;
+
+const UserName = styled.span`
+	display: inline-block;
+`;
+
+const DarkMode = styled.button`
+	height: 50px;
+	width: 50px;
+	background: blue;
 `;
 
 export default function Footer(): JSX.Element {
 	return (
 		<div>
 			<FooterContainer>
-				<Title>SM`S</Title>
-				<TT>
-					<Menu>첫번째</Menu>
-					<Menu>두번째</Menu>
-					<Menu>세번째</Menu>
-					<Menu>네번째</Menu>
-				</TT>
+				<FooterWarpper>
+					<UserName>Portfolio</UserName>
+					<DarkMode />
+				</FooterWarpper>
 			</FooterContainer>
 		</div>
 	);
