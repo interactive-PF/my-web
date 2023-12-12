@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 
 const Head = styled.nav`
@@ -33,11 +34,32 @@ const Menu = styled.button`
 	padding: 10px 30px;
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function fetchTitle(): Promise<any> {
+	const response = await fetch(`https://pfpf.pockethost.io
+/api/collections/SM/records`);
+
+	return response.json();
+}
+
 export default function Header(): JSX.Element {
+	const { isLoading, data, isError } = useQuery({
+		queryKey: ['products'],
+		queryFn: fetchTitle,
+	});
+
+	if (isLoading) {
+		return <div>로딩중</div>;
+	}
+
+	if (isError) {
+		return <div>Error</div>;
+	}
+
 	return (
 		<Head>
 			<TitleWrapper>
-				<Title>SM`S</Title>
+				<Title>{data?.items[0].name}</Title>
 			</TitleWrapper>
 			<MenuWrapper>
 				<Menu>첫번째</Menu>
