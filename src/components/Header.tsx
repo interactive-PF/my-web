@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
+import { type RecordModel } from 'pocketbase';
+import pb from '../api/pocketBase';
 
 const Head = styled.nav`
 	display: flex;
@@ -35,11 +37,10 @@ const Menu = styled.button`
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function fetchTitle(): Promise<any> {
-	const response = await fetch(`https://pfpf.pockethost.io
-/api/collections/SM/records`);
+async function fetchTitle(): Promise<RecordModel[]> {
+	const response = await pb.collection('SM').getFullList();
 
-	return response.json();
+	return response;
 }
 
 export default function Header(): JSX.Element {
@@ -59,7 +60,7 @@ export default function Header(): JSX.Element {
 	return (
 		<Head>
 			<TitleWrapper>
-				<Title>{data?.items[0].name}</Title>
+				<Title>{data?.[0]?.name}</Title>
 			</TitleWrapper>
 			<MenuWrapper>
 				<Menu>첫번째</Menu>
