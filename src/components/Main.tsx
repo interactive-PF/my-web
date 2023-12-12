@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import About from './About';
+import Home from './Home';
 
 const Section = styled.section`
 	position: absolute;
@@ -9,12 +9,11 @@ const Section = styled.section`
 
 const MainLeft = styled.div`
 	width: 40%;
-	background-color: green;
+	background-color: gray;
 `;
 
 const MainRight = styled.div`
 	width: 60%;
-	background-color: purple;
 `;
 
 export default function Main(): JSX.Element {
