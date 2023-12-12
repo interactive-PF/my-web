@@ -8,7 +8,6 @@ const FooterContainer = styled.footer`
 	left: 0px;
 	right: 0px;
 	z-index: 10;
-	background-color: black;
 	color: rgb(51, 51, 51);
 	position: fixed;
 	padding: 0px 70px;
@@ -20,7 +19,6 @@ const FooterWarpper = styled.div`
 	align-items: center;
 	-webkit-box-pack: justify;
 	justify-content: space-between;
-	background: red;
 `;
 
 const UserName = styled.span`
