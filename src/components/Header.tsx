@@ -1,4 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
+import { type RecordModel } from 'pocketbase';
+import pb from '../api/pocketBase';
 
 const Head = styled.nav`
 	display: flex;
@@ -33,11 +36,31 @@ const Menu = styled.button`
 	padding: 10px 30px;
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function fetchTitle(): Promise<RecordModel[]> {
+	const response = await pb.collection('SM').getFullList();
+
+	return response;
+}
+
 export default function Header(): JSX.Element {
+	const { isLoading, data, isError } = useQuery({
+		queryKey: ['products'],
+		queryFn: fetchTitle,
+	});
+
+	if (isLoading) {
+		return <div>로딩중</div>;
+	}
+
+	if (isError) {
+		return <div>Error</div>;
+	}
+
 	return (
 		<Head>
 			<TitleWrapper>
-				<Title>SM`S</Title>
+				<Title>{data?.[0]?.name}</Title>
 			</TitleWrapper>
 			<MenuWrapper>
 				<Menu>첫번째</Menu>

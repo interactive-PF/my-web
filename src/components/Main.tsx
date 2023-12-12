@@ -19,9 +19,9 @@ const MainRight = styled.div`
 export default function Main(): JSX.Element {
 	return (
 		<Section>
-			<MainLeft />
+			<MainLeft>왼쪽 구역</MainLeft>
 			<MainRight>
-				<Home />
+				<About />
 			</MainRight>
 		</Section>
 	);
