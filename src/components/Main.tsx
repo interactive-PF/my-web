@@ -21,7 +21,7 @@ export default function Main(): JSX.Element {
 		<Section>
 			<MainLeft>왼쪽 구역</MainLeft>
 			<MainRight>
-				<About />
+				<Home />
 			</MainRight>
 		</Section>
 	);
