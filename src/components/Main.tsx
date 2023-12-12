@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Home from './Home';
 
 const Section = styled.section`
 	position: absolute;
@@ -20,9 +19,7 @@ export default function Main(): JSX.Element {
 	return (
 		<Section>
 			<MainLeft>왼쪽 구역</MainLeft>
-			<MainRight>
-				<Home />
-			</MainRight>
+			<MainRight />
 		</Section>
 	);
 }
