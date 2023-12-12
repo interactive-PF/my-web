@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import About from './About';
 
 const Section = styled.section`
 	position: absolute;
@@ -20,7 +21,9 @@ export default function Main(): JSX.Element {
 	return (
 		<Section>
 			<MainLeft>왼쪽 구역</MainLeft>
-			<MainRight>오른쪽 구역</MainRight>
+			<MainRight>
+				<About />
+			</MainRight>
 		</Section>
 	);
 }
