@@ -1,10 +1,16 @@
 import styled from 'styled-components';
-import Home from './Home';
+import Project from './Project';
 
 const Section = styled.section`
 	position: absolute;
 	display: flex;
 	inset: 70px;
+	overflow: hidden;
+	::-webkit-scrollbar {
+		display: none;
+	}
+	/* Firefox */
+	scrollbar-width: none;
 `;
 
 const MainLeft = styled.div`
@@ -14,6 +20,7 @@ const MainLeft = styled.div`
 
 const MainRight = styled.div`
 	width: 60%;
+	overflow-y: scroll;
 `;
 
 export default function Main(): JSX.Element {
@@ -21,7 +28,7 @@ export default function Main(): JSX.Element {
 		<Section>
 			<MainLeft>왼쪽 구역</MainLeft>
 			<MainRight>
-				<Home />
+				<Project />
 			</MainRight>
 		</Section>
 	);
