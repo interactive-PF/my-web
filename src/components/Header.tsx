@@ -1,46 +1,73 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
+import { type RecordModel } from 'pocketbase';
+import pb from '../api/pocketBase';
 
 const Head = styled.nav`
-	background-color: black;
-	width: 100%;
-	color: white;
 	display: flex;
 	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 10px 3% 0 3%;
+	background-color: skyblue;
+	width: 100%;
+	position: fixed;
+	height: 70px;
+	align-items: center;
 `;
 
-const Title = styled.h1`
+const TitleWrapper = styled.div``;
+
+const Title = styled.a`
+	font-size: 2rem;
+`;
+
+const MenuWrapper = styled.div`
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	text-align: center;
-	font-size: 3rem;
+	min-width: 333px;
 `;
 
 const Menu = styled.button`
-	margin: auto auto;
-	padding: 20px 20px;
-	height: auto;
-	margin: 10px;
+	font-size: 1.5rem;
+	min-width: 90px;
+	background-color: yellow;
+	margin: 0 15px;
+	padding: 10px 30px;
 `;
 
-const TT = styled.div`
-	margin: auto 0;
-	display: flex;
-	justify-content: space-between;
-	margin-right: 30px;
-`;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function fetchTitle(): Promise<RecordModel[]> {
+	const response = await pb.collection('SM').getFullList();
+
+	return response;
+}
 
 export default function Header(): JSX.Element {
+	const { data } = useQuery({
+		queryKey: ['products'],
+		queryFn: fetchTitle,
+	});
+
+	// if (isLoading) {
+	// 	return <div>로딩중</div>;
+	// }
+
+	// if (isError) {
+	// 	return <div>Error</div>;
+	// }
+
 	return (
-		<div>
-			<Head>
-				<Title>SM`S</Title>
-				<TT>
-					<Menu>첫번째</Menu>
-					<Menu>두번째</Menu>
-					<Menu>세번째</Menu>
-					<Menu>네번째</Menu>
-				</TT>
-			</Head>
-		</div>
+		<Head>
+			<TitleWrapper>
+				<Title>{data?.[0]?.name}</Title>
+			</TitleWrapper>
+			<MenuWrapper>
+				<Menu>첫번째</Menu>
+				<Menu>두번째</Menu>
+				<Menu>세번째</Menu>
+				<Menu>네번째</Menu>
+			</MenuWrapper>
+		</Head>
 	);
 }
