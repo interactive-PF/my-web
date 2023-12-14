@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+<<<<<<< HEAD
 import Project from './Project';
+=======
+>>>>>>> develop
 
 const Section = styled.section`
 	position: absolute;
