@@ -1,16 +1,10 @@
-import './App.css';
-
-import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Main from './components/Main';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/routes';
 
 function App(): JSX.Element {
 	return (
 		<div className="App">
-			<Header />
-			<Main />
-			<Footer />
+			<RouterProvider router={router} />
 		</div>
 	);
 }
