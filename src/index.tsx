@@ -3,7 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import './normalize.css';
+// import './normalize.css';
+import './reset.css';
 // import reportWebVitals from './reportWebVitals';
 
 // 쿼리 클라이언트 객체 생성

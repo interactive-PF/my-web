@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { UnderLineLong, UnderLineShort } from '../styles/common';
 
 const HomeContainer = styled.div`
 	height: 100%;
@@ -15,13 +16,6 @@ const WriteYourName = styled.h3`
 	font-size: 4.1rem;
 	font-weight: 800;
 	margin: 0;
-	margin-bottom: 1rem;
-`;
-
-const UnderLineLong = styled.div`
-	height: 1px;
-	background: #dfdfde;
-	margin-bottom: 20px;
 `;
 
 const WriteYourNickName = styled.p`
@@ -33,13 +27,6 @@ const ProjectLink = styled.a`
 	font-size: 1.563rem;
 	cursor: pointer;
 	color: #73716e;
-`;
-
-const UnderLineShort = styled.span`
-	display: block;
-	height: 1px;
-	width: 137px;
-	background: #dfdfde;
 `;
 
 export default function Home(): JSX.Element {

@@ -44,18 +44,18 @@ async function fetchTitle(): Promise<RecordModel[]> {
 }
 
 export default function Header(): JSX.Element {
-	const { isLoading, data, isError } = useQuery({
+	const { data } = useQuery({
 		queryKey: ['products'],
 		queryFn: fetchTitle,
 	});
 
-	if (isLoading) {
-		return <div>로딩중</div>;
-	}
+	// if (isLoading) {
+	// 	return <div>로딩중</div>;
+	// }
 
-	if (isError) {
-		return <div>Error</div>;
-	}
+	// if (isError) {
+	// 	return <div>Error</div>;
+	// }
 
 	return (
 		<Head>
